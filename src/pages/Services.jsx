@@ -5,6 +5,7 @@ import ServicesHeading from "../components/ServicesHeading";
 import ServicesHero from "../components/ServicesHero";
 import ServicesSearch from "../components/ServicesSearch";
 import ServicesNav from "../components/ServicesNav";
+import ScrollNavigator from "../components/ScrollNavigator"
 
 
 function Services() {
@@ -13,6 +14,7 @@ function Services() {
 
   return (
     <>
+      <ScrollNavigator/>
       <ServicesNav />
       <ServicesHero/>
       <ServicesSearch/>
@@ -25,4 +27,4 @@ function Services() {
 }
 
 export default Services;
-
+

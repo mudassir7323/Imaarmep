@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import theme from "../../theme/Theme";
 import { ContactContext } from "../../context/contact/ContactContext";
-import logo from "../../assets/logo/logo.png";
+import logo from "../../assets/logo/logo1.png";
 
 const PAGES = [
   { label: "Home", href: "/" },
@@ -12,8 +12,14 @@ const PAGES = [
 ];
 
 const SERVICES_LINKS = [
-  { label: "Electrical Engineering", href: "/services#svc-electrical-engineering" },
-  { label: "Mechanical Engineering", href: "/services#svc-mechanical-engineering" },
+  {
+    label: "Electrical Engineering",
+    href: "/services#svc-electrical-engineering",
+  },
+  {
+    label: "Mechanical Engineering",
+    href: "/services#svc-mechanical-engineering",
+  },
   { label: "Environmental", href: "/services#svc-environmental-engineering" },
   { label: "Specialist Services", href: "/services#svc-specialist-services" },
   { label: "Surveys & Reports", href: "/services#svc-surveys-&-reports" },
@@ -52,7 +58,7 @@ const Footer = () => {
       style={{ backgroundColor: theme.colors.textPrimary }}
     >
       {/* Background Decorative Element */}
-      <div 
+      <div
         className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-[120px] opacity-10 pointer-events-none"
         style={{ backgroundColor: theme.colors.primary }}
       />
@@ -71,25 +77,29 @@ const Footer = () => {
               <img
                 src={logo}
                 alt="IMAAR MEP"
-                className="h-14 w-auto brightness-0 invert"
+                className="h-14 w-auto object-contain  "
+                //  style={{ mixBlendMode: "multiply" }}
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
                   e.currentTarget.nextSibling.style.display = "block";
                 }}
               />
               <span className="hidden font-extrabold text-2xl tracking-tighter text-white">
-                IMAAR <span style={{ color: theme.colors.primaryLight }}>MEP</span>
+                IMAAR{" "}
+                <span style={{ color: theme.colors.primaryLight }}>MEP</span>
               </span>
             </div>
           </Link>
+
           <p
             className="text-[0.92rem] leading-relaxed max-w-[280px]"
             style={{ color: "rgba(255,255,255,0.45)" }}
           >
             Delivering innovative mechanical, electrical, and public health
-            design solutions tailored to the modern built environment with excellence.
+            design solutions tailored to the modern built environment with
+            excellence.
           </p>
-          
+
           {/* Social Links */}
           <div className="flex gap-3">
             <motion.a
@@ -121,8 +131,12 @@ const Footer = () => {
                   to={href}
                   className="text-[0.9rem] transition-all duration-300 hover:translate-x-1 inline-block"
                   style={{ color: "rgba(255,255,255,0.6)" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = theme.colors.white)}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = theme.colors.white)
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = "rgba(255,255,255,0.6)")
+                  }
                 >
                   {label}
                 </Link>
@@ -146,8 +160,12 @@ const Footer = () => {
                   to={href}
                   className="text-[0.9rem] transition-all duration-300 hover:translate-x-1 inline-block"
                   style={{ color: "rgba(255,255,255,0.6)" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = theme.colors.white)}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = theme.colors.white)
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = "rgba(255,255,255,0.6)")
+                  }
                 >
                   {label}
                 </Link>
@@ -157,7 +175,10 @@ const Footer = () => {
         </motion.div>
 
         {/* Contact Info Column */}
-        <motion.div variants={fadeUp} className="flex flex-col gap-6 text-[0.9rem]">
+        <motion.div
+          variants={fadeUp}
+          className="flex flex-col gap-6 text-[0.9rem]"
+        >
           <h4
             className="text-[0.7rem] font-black uppercase tracking-[0.2em]"
             style={{ color: theme.colors.primaryLight }}
@@ -207,7 +228,8 @@ const Footer = () => {
         style={{ color: "rgba(255,255,255,0.25)" }}
       >
         <p>
-          &copy; {new Date().getFullYear()} IMAAR MEP Engineering Consultancy Ltd. All rights reserved.
+          &copy; {new Date().getFullYear()} IMAAR MEP Engineering Consultancy
+          Ltd. All rights reserved.
         </p>
         <div className="flex gap-8">
           <Link
