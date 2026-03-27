@@ -4,6 +4,8 @@ import ContactHero from "../components/ContactHero";
 import Location from "../components/Location";
 import theme from "../theme/Theme";
 import { ContactContext } from "../context/contact/ContactContext";
+import emailjs from '@emailjs/browser';
+
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 // Data is provided by ContactContext
@@ -103,6 +105,9 @@ const inputClass =
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 
+
+
+
 const Contact = () => {
   const { CONTACT_INFO, SERVICE_OPTIONS } = useContext(ContactContext);
   const [formData, setFormData] = useState({
@@ -142,10 +147,36 @@ const Contact = () => {
       setErrors(errs);
       return;
     }
+    
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1400));
-    setSubmitting(false);
-    setSubmitted(true);
+    
+    try {
+      // Use the credentials provided by the user
+      await emailjs.send(
+        "service_87pmpjh",
+        "template_mn4uxap",
+        formData,
+        "sBHfxxohc_ChB1d0t"
+      );
+      
+      setSubmitted(true);
+      // Reset form data after successful submission
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        company: "",
+        service: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      // You might want to show a specific error message to the user here
+      alert("Failed to send message. Please try again later or contact us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
