@@ -4,11 +4,13 @@ import Footer from "./components/footer/Footer";
 import Services from "./pages/Services";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <>
       <Header />
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<Home />} />
