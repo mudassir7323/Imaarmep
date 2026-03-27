@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import theme from "../theme/Theme";
+
 const CheckIcon = () => (
   <svg
     width="11"
@@ -13,37 +16,66 @@ const CheckIcon = () => (
   </svg>
 );
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      delay: i * 0.07,
+      ease: "easeOut",
+    },
+  }),
+};
+
 function ServicesCard({ items = [], isEven }) {
   return (
-    <div className={`px-[5%] py-[60px] ${isEven ? "bg-slate-50" : "bg-white"}`}>
+    <div
+      className="px-[5%] py-[60px]"
+      style={{ backgroundColor: isEven ? theme.colors.grayLight : theme.colors.white }}
+    >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-[1200px]">
-        
+
         {items.map((item, i) => (
-          <div
+          <motion.div
             key={i}
-            className="group flex items-start gap-3.5 px-5 py-4 bg-white rounded-[12px] border border-slate-100 text-sm text-slate-600 leading-[1.55]
-            transition-all duration-300 ease-out
-            hover:scale-[1.06] hover:-translate-y-1
-            hover:shadow-[0_20px_40px_rgba(26,86,219,0.25)]
-            hover:border-blue-200 hover:bg-blue-50 cursor-pointer"
+            custom={i}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            whileHover={{
+              scale: 1.06,
+              y: -4,
+              boxShadow: `0 20px 40px ${theme.colors.secondary}40`,
+              borderColor: theme.colors.primaryLight,
+              backgroundColor: `${theme.colors.primaryLight}15`,
+            }}
+            className="flex items-start gap-3.5 px-5 py-4 rounded-[12px] border text-sm leading-[1.55] cursor-pointer transition-colors duration-300"
+            style={{
+              backgroundColor: theme.colors.white,
+              borderColor: theme.colors.grayLight,
+              color: theme.colors.textSecondary,
+            }}
           >
-            
             {/* Icon */}
-            <div
-              className="w-[22px] h-[22px] rounded-[6px] flex items-center justify-center shrink-0 mt-[1px]
-              bg-gradient-to-br from-blue-700 to-blue-400
-              transition-all duration-300
-              group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-md"
+            <motion.div
+              whileHover={{ scale: 1.15, rotate: 6 }}
+              transition={{ duration: 0.25 }}
+              className="w-[22px] h-[22px] rounded-[6px] flex items-center justify-center shrink-0 mt-[1px]"
+              style={{
+                background: `linear-gradient(135deg, ${theme.colors.primary}, ${theme.colors.primaryLight})`,
+              }}
             >
               <CheckIcon />
-            </div>
+            </motion.div>
 
             {/* Text */}
-            <span className="transition-all duration-300 group-hover:text-blue-800 group-hover:font-medium">
+            <span className="transition-all duration-300" style={{ color: theme.colors.textSecondary }}>
               {item}
             </span>
-
-          </div>
+          </motion.div>
         ))}
 
       </div>

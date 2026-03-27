@@ -1,4 +1,38 @@
+import { motion } from "framer-motion";
+import theme from "../theme/Theme";
 import ServicesCard from "./ServicesCard";
+
+const bandVariants = {
+  hidden: { opacity: 0, x: -40 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
+
+const iconVariants = {
+  hidden: { opacity: 0, scale: 0.6, rotate: -15 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: { duration: 0.6, ease: "easeOut", delay: 0.2 },
+  },
+};
+
+const textBlockVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.3 },
+  },
+};
+
+const lineVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+};
 
 const ServicesHeading = ({
   index,
@@ -12,54 +46,112 @@ const ServicesHeading = ({
   const orderLabel = `Discipline ${String(index).padStart(2, "0")}`;
   const bgNum = String(index).padStart(2, "0");
 
-  const gradientClass = isEven
-    ? "bg-[linear-gradient(135deg,#0d1a2e_0%,#0f2552_100%)]"
-    : "bg-[linear-gradient(135deg,#0f2552_0%,#1a3a7a_100%)]";
+  // Use theme colors to build gradient
+  const bandBg = isEven
+    ? `linear-gradient(135deg, ${theme.colors.textPrimary} 0%, ${theme.colors.primary} 100%)`
+    : `linear-gradient(135deg, ${theme.colors.primary} 0%, ${theme.colors.secondary} 100%)`;
+
+  // Slug for scroll target
+  const sectionId = `svc-${title.toLowerCase().replace(/\s+/g, "-")}`;
 
   return (
-    <div className="svc-block relative border-b border-black/[0.06]">
-      
+    <div
+      id={sectionId}
+      className="svc-block relative border-b scroll-mt-[160px]"
+      style={{ borderColor: `${theme.colors.grayLight}` }}
+    >
       {/* VISUAL BAND */}
-      <div
-        className={`relative flex items-center py-16 md:py-[72px] px-[5%] overflow-hidden min-h-[300px] ${gradientClass}`}
+      <motion.div
+        variants={bandVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="relative flex items-center py-16 md:py-[72px] px-[5%] overflow-hidden min-h-[300px]"
+        style={{ background: bandBg }}
       >
         {/* Background Image */}
         {imagePath && (
           <div
-            className="svc-photo absolute inset-0 z-[1] opacity-[0.22]"
+            className="svc-photo absolute inset-0 z-[1] opacity-[0.18] bg-cover bg-center"
             style={{ backgroundImage: `url('${imagePath}')` }}
           />
         )}
 
+        {/* Glow accent */}
+        <div
+          className="absolute -top-20 -right-20 w-[300px] h-[300px] rounded-full opacity-20 blur-3xl pointer-events-none z-[2]"
+          style={{ backgroundColor: theme.colors.primaryLight }}
+        />
+
         {/* Content */}
         <div className="relative z-[3] flex flex-col md:flex-row items-start md:items-center gap-7 md:gap-12 w-full max-w-[860px]">
-          
+
           {/* Icon */}
-          <div className="w-[72px] h-[72px] md:w-[100px] md:h-[100px] rounded-[18px] md:rounded-[24px] flex items-center justify-center text-white shrink-0 border bg-white/10 backdrop-blur-md border-white/20">
+          <motion.div
+            variants={iconVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            transition={{ duration: 0.3 }}
+            className="w-[72px] h-[72px] md:w-[100px] md:h-[100px] rounded-[18px] md:rounded-[24px] flex items-center justify-center text-white shrink-0 border backdrop-blur-md"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.1)",
+              borderColor: "rgba(255,255,255,0.2)",
+            }}
+          >
             {icon}
-          </div>
+          </motion.div>
 
           {/* Text */}
-          <div>
-            <p className="text-[0.7rem] font-bold tracking-[0.16em] uppercase text-blue-300 mb-3">
+          <motion.div
+            variants={textBlockVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.p
+              variants={lineVariants}
+              className="text-[0.7rem] font-bold tracking-[0.16em] uppercase mb-3"
+              style={{ color: theme.colors.primaryLight }}
+            >
               {orderLabel}
-            </p>
+            </motion.p>
 
-            <h2 className="text-white text-3xl md:text-5xl font-bold mb-4">
+            <motion.h2
+              variants={lineVariants}
+              className="text-white text-3xl md:text-5xl font-bold mb-4"
+            >
               {title}
-            </h2>
+            </motion.h2>
 
-            <p className="text-white/70 text-sm leading-relaxed max-w-[560px]">
+            <motion.p
+              variants={lineVariants}
+              className="text-sm leading-relaxed max-w-[560px]"
+              style={{ color: "rgba(255,255,255,0.70)" }}
+            >
               {description}
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
 
-        {/* Big number */}
-        <span className="absolute right-[5%] bottom-[-20px] text-[10rem] text-white/5 hidden md:block">
+        {/* Big background number */}
+        <motion.span
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="absolute right-[5%] bottom-[-20px] hidden md:block select-none pointer-events-none"
+          style={{
+            fontSize: "10rem",
+            color: "rgba(255,255,255,0.05)",
+            fontWeight: 900,
+            lineHeight: 1,
+          }}
+        >
           {bgNum}
-        </span>
-      </div>
+        </motion.span>
+      </motion.div>
 
       {/* ITEMS */}
       {items.length > 0 && (
