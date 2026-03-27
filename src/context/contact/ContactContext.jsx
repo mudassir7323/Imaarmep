@@ -7,7 +7,7 @@ export const ContactProvider = ({ children }) => {
     {
       id: "phone",
       label: "Phone",
-      value: "+44 (0) 123 456 789",
+      value: "+44 7821 103158",
       href: "tel:+440000000000",
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">

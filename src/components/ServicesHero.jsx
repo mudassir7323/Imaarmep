@@ -61,7 +61,7 @@ const ServicesHero = () => {
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="relative z-10 text-center px-6"
+          className="relative z-10 pt-5 text-center px-6"
         >
           {/* Breadcrumb */}
           <motion.p variants={fadeUp} className="text-white/80 text-sm mb-4 tracking-wider uppercase font-medium">

@@ -88,7 +88,7 @@ function Services() {
       />
 
       {/* Sticky Wrapper */}
-      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden px-[5%] z-10 w-full max-w-full">
+      <div className="sticky pt-15 top-0 h-screen flex flex-col justify-center overflow-hidden px-[5%] z-10 w-full max-w-full">
         {/* HEADER */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 max-w-[1400px] mx-auto w-full gap-6">
           <div>
@@ -98,9 +98,9 @@ function Services() {
             >
               What We Do
             </p>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">
+            <h5 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">
               Our Core <span style={{ color: theme.colors.accent }}>Services</span>
-            </h2>
+            </h5>
           </div>
 
           <Link

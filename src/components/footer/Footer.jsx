@@ -74,16 +74,22 @@ const Footer = () => {
         <motion.div variants={fadeUp} className="flex flex-col gap-6">
           <Link to="/" className="inline-block group">
             <div className="flex items-center gap-3">
-              <img
-                src={logo}
-                alt="IMAAR MEP"
-                className="h-14 w-auto object-contain  "
-                //  style={{ mixBlendMode: "multiply" }}
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                  e.currentTarget.nextSibling.style.display = "block";
-                }}
-              />
+              {/* Bigger Circle */}
+              <div
+                className="h-30 w-30 rounded-full bg-white border-2 overflow-hidden flex items-center justify-center"
+                style={{ borderColor: theme.colors.primaryLight }}
+              >
+                <img
+                  src={logo}
+                  alt="IMAAR MEP"
+                  className="h-full w-full object-contain "
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                    e.currentTarget.nextSibling.style.display = "block";
+                  }}
+                />
+              </div>
+
               <span className="hidden font-extrabold text-2xl tracking-tighter text-white">
                 IMAAR{" "}
                 <span style={{ color: theme.colors.primaryLight }}>MEP</span>

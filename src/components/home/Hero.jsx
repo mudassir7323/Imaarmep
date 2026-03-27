@@ -77,7 +77,7 @@ function Hero() {
         {/* Content container */}
         <div className="hero-content max-w-7xl mx-auto px-6 py-24 md:py-36 relative z-10 w-full animate-fade-in-up">
           <div
-            className="hero-label uppercase tracking-widest mb-4 font-semibold text-sm md:text-base animate-fade-in-down delay-100"
+            className="hero-label uppercase tracking-widest mb-4 pt-5 font-semibold text-sm md:text-base animate-fade-in-down delay-100"
             style={{ color: theme.colors.primaryLight }}
           >
             M&E Engineering Consultancy · Birmingham, UK

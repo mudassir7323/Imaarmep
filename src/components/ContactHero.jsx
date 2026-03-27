@@ -63,7 +63,7 @@ const ContactHero = () => (
         variants={stagger}
         initial="hidden"
         animate="visible"
-        className="relative z-10 px-[5%] w-full max-w-[1200px] mx-auto"
+        className="relative z-10 px-[5%] pt-17 w-full max-w-[1200px] mx-auto"
       >
         {/* Breadcrumb */}
         <motion.nav
