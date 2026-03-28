@@ -5,6 +5,7 @@ import Location from "../components/Location";
 import theme from "../theme/Theme";
 import { ContactContext } from "../context/contact/ContactContext";
 import emailjs from '@emailjs/browser';
+import SEO from "../components/SEO";
 
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -181,6 +182,13 @@ const Contact = () => {
 
   return (
     <div className="contact-page min-h-screen" style={{ backgroundColor: theme.colors.white }}>
+      <SEO
+        title="Contact Us | IMAAR MEP"
+        description="Get in touch with IMAAR MEP for inquiries, quotes, or support. We are here to help you build the future."
+        keywords="contact IMAAR MEP, MEP support, engineering quote, get in touch"
+        name="IMAAR MEP"
+        type="website"
+      />
       <style>{STYLES}</style>
 
       {/* ── HERO ── */}

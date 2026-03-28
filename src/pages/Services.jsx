@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ServicesContext } from "../context/ServicesContext";
+import SEO from "../components/SEO";
 
 import ServicesHeading from "../components/ServicesHeading";
 import ServicesHero from "../components/ServicesHero";
@@ -14,6 +15,13 @@ function Services() {
 
   return (
     <>
+      <SEO
+        title="Our Services | IMAAR MEP"
+        description="Explore our diverse range of engineering services, including mechanical, electrical, plumbing, and sustainable solutions."
+        keywords="MEP services, engineering, mechanical, electrical, plumbing, sustainability"
+        name="IMAAR MEP"
+        type="website"
+      />
       <ScrollNavigator/>
       <ServicesNav />
       <ServicesHero/>
