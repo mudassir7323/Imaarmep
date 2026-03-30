@@ -8,7 +8,7 @@ export const ContactProvider = ({ children }) => {
       id: "phone",
       label: "Phone",
       value: "+44 7821 103158",
-      href: "tel:+440000000000",
+      href: "tel:+44 7821 103158",
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.16h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.67a16 16 0 0 0 8.07 8.07l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 24 17.92" />
@@ -43,7 +43,7 @@ export const ContactProvider = ({ children }) => {
       id: "linkedin",
       label: "LinkedIn",
       value: "IMAAR MEP on LinkedIn",
-      href: "YOUR_LINKEDIN_URL",
+      href: "https://www.linkedin.com/company/imaarmepuk",
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
