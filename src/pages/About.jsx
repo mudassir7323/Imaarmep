@@ -4,6 +4,7 @@ import ChooseUs from "../components/home/ChooseUs";
 import Process from "../components/home/Process";
 import Services from "../components/home/Services";
 import WorkWithUs from "../components/home/WorkWithUs";
+import ScrollNavigator from "../components/ScrollNavigator"
 
 function About() {
   return (
@@ -15,6 +16,7 @@ function About() {
         name="IMAAR MEP"
         type="website"
       />
+      <ScrollNavigator/>
       <div>
         <Services />
       </div>
