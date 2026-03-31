@@ -155,7 +155,7 @@ const Contact = () => {
     try {
       // Use the credentials provided by the user
       await emailjs.send(
-        "service_erp51nh",
+        "service_7mecp9e",
         "template_mn4uxap",
         formData,
         "sBHfxxohc_ChB1d0t",
