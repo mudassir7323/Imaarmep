@@ -8,9 +8,8 @@ const fadeUp = {
 
 const Location = () => {
   const MAP_EMBED_SRC =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9731.89152657655!2d-1.9026911!3d52.4814339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870942d1b417173%3A0xa89142a7a1208edd!2sBirmingham%2C%20UK!5e0!3m2!1sen!2sus!4v1700000000000";
-
-  return (
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d38927.76312885175!2d-1.8238164988099264!3d52.42506594109198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870b0a0a5c6ab81%3A0xe3f527bb4b0274fc!2sSolihull%2C%20UK!5e0!3m2!1sen!2s!4v1774956468915!5m2!1sen!2s"
+    return (
     <motion.section
       initial="hidden"
       whileInView="visible"
@@ -79,7 +78,7 @@ const Location = () => {
             <circle cx="12" cy="10" r="3" />
           </svg>
           <p className="text-[0.78rem]" style={{ color: theme.colors.textSecondary }}>
-            Birmingham, United Kingdom
+            Solihull, Birmingham, United Kingdom
           </p>
         </motion.div>
 
