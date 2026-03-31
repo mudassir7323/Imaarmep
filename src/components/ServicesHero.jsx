@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import services from "../assets/services/services.jpg";
 import theme from "../theme/Theme";
+import { Link } from "react-router-dom";
 
 const ServicesHero = () => {
   // Animation variants
@@ -65,7 +66,7 @@ const ServicesHero = () => {
         >
           {/* Breadcrumb */}
           <motion.p variants={fadeUp} className="text-white/80 text-sm mb-4 tracking-wider uppercase font-medium">
-            <a href="/" className="hover:text-white transition-colors duration-300">Home</a>
+            <Link to="/" className="hover:text-white transition-colors duration-300">Home</Link>
             <span className="mx-2">/</span>
             <span style={{ color: theme.colors.primaryLight }}>Services</span>
           </motion.p>
