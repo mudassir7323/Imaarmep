@@ -117,7 +117,7 @@ function Header() {
             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = theme.colors.primary}
           >
             <span className="relative z-10 flex items-center gap-2">
-              Start Project
+              Contact Us
               <svg
                 className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                 viewBox="0 0 16 16"
@@ -196,7 +196,7 @@ function Header() {
             className="flex items-center justify-center gap-3 w-full text-lg font-bold uppercase tracking-widest text-white py-5 rounded-sm shadow-md transition-transform duration-300 active:scale-95"
             style={{ backgroundColor: theme.colors.primary }}
           >
-            Start Project
+            Contact Us
           </Link>
         </div>
       </div>
